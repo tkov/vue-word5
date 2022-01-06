@@ -86,6 +86,7 @@ export default {
     },
     isNewGame(){
       // this.restart = false;
+      this.key = null
       this.keyColors = null;
       this.generateWord();
       this.start = true;
@@ -146,7 +147,7 @@ export default {
   @media (max-width: 550px) {
     .wrapper {
       justify-content: space-around;
-      margin-top: 10%;
+      margin-top: -10%;
     }
   }
 </style>

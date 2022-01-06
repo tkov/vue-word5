@@ -310,11 +310,22 @@ export default {
 
   .keyboard {
     margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+  }
+
+  .answer {
+    width: 8ch;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #efefef;
+    padding: 3px;
+    text-align: center;
+    font-family: 'Clear Sans', sans-serif;
+    text-transform: uppercase;
   }
 
    .visible {

@@ -55,7 +55,7 @@ export default {
 
   @media (max-width: 550px) {
 
-    h1 {
+  /*  h1 {
     font-size: 55px;
     text-transform: uppercase;
     font-family: 'Clear Sans' , sans-serif;
@@ -68,9 +68,12 @@ export default {
     padding: 1rem;
     outline: 10px solid #efefef;
     border: 4px solid #444;
-    /*margin-top: 1rem;*/
+    /*margin-top: 1rem;
   }
-
+  */
+  h1 {
+    display: none;
+  }
 
 
   }

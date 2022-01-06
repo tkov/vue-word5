@@ -51,8 +51,18 @@
         <div class="tile"></div>
         <div class="tile"></div>
       </div>
+      <hr>
+
+      <div class="guess answer"> 
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
     </div>
   </div>
+    <!-- <div class="answer">BAENNE</div> -->
 </template>
 
 <script>
@@ -110,7 +120,8 @@ export default {
           if (colors.every((element) => element == '#4BB74C')) {
             this.cont = "WIN";
             this.bColor = "#4BB74C";
-            this.$emit('playingNewGame', {'isPlaying': false, 'newGame': false});
+            this.gameOver();
+            // this.$emit('playingNewGame', {'isPlaying': false, 'newGame': false});
           } 
           // continue onto the game, i.e. the next rows...
           else {
@@ -118,6 +129,19 @@ export default {
             if (this.guess == 7) {
               this.cont = "LOSS";
               this.bColor = "#c80000";
+              //added to display answer
+              // messageNode.innerHTML = this.targetWord;
+              // messageNode.classList.remove('hidden');
+              // messageNode.classList.add('visible');
+              // setTimeout(() => {
+              //   messageNode.classList.remove('visible');
+              //   messageNode.classList.add('hidden');
+              // }, 1500
+              // )
+
+             
+
+              // this.currentRowElement.removeChild(messageNode);
               this.gameOver();
               return
             }
@@ -133,21 +157,20 @@ export default {
         }
         // handle a word entered less than 5 letters long...
         else {
-          // this.currentRowElement.appendChild(messageNode);
-          messageNode.classList.remove('hidden');
-          messageNode.classList.add('visible');
-          setTimeout(() => {
-            messageNode.classList.remove('visible');
-            messageNode.classList.add('hidden');
-          }, 1500
-          )
+          // // this.currentRowElement.appendChild(messageNode);
+          // messageNode.classList.remove('hidden');
+          // messageNode.classList.add('visible');
+          // setTimeout(() => {
+          //   messageNode.classList.remove('visible');
+          //   messageNode.classList.add('hidden');
+          // }, 1500
+          // )
 
           // this.currentRowElement.removeChild(messageNode);
           // this.warningElementText = "Please enter a 5 letter word."
           return
         }
         
-        // this.currentRowElement.removeChild(messageNode);
         this.userWord = [];
     },
     handleKeyPress() {
@@ -235,6 +258,12 @@ export default {
         return [color, keyColor];
       }, //checkWord()
       gameOver() {
+         const ans = document.querySelector('.answer').childNodes;
+              for (let i = 0; i < 5; i++){
+                ans[i].style.backgroundColor = '#4BB74C';
+                ans[i].style.backgroundColor = '#4BB74C';
+                ans[i].innerHTML = this.targetWord[i].toUpperCase();
+              }
         this.$emit('playingNewGame', {'isPlaying': false, 'newGame': false});
 
       },
@@ -275,16 +304,27 @@ export default {
           element.innerHTML = '';
         }
 
+        this.userWord = [];
         this.cont = "word5"
         this.bColor = "white"
         this.targetWord = null;
         this.count = 0;
         this.guess = 1;
+        // document.querySelector('.message').innerHTML = 'Please enter a 5 letter word';
         const currentRowElement = document.querySelector('.guess-' + this.guess);
         this.currentRowElement = currentRowElement;
         this.currentRowTiles = currentRowElement.childNodes;
         this.start = false;
         this.playing = true;
+        const ans = document.querySelector('.answer').childNodes;
+        for (let i = 0; i < 5; i++){
+          ans[i].style.backgroundColor = '#444';
+          // ans[i].style.backgroundColor = '#4BB74C';
+          ans[i].innerHTML = '';
+        }
+
+
+
         this.$emit('isPlaying', true);
       }
   },
@@ -368,6 +408,20 @@ export default {
     transition: visibility 0s 2s, opacity 2s linear;
   }
 
+  .answer .tile {
+    background-color: #444;
+    border: #efefef dotted 2px;
+  }
+
+  hr {
+    width: 105%;
+    margin-left: -10px;
+    /*color:  #efefef;*/
+    /*background-color: #efefef;*/
+    border: #efefef 2px solid;
+    display: block;
+  }
+
 
   @media (max-width: 550px) {
 
@@ -385,8 +439,27 @@ export default {
     border: solid 10px #efefef;
     padding: 20px;
     margin: auto;
-
+    }
+    h2.message {
+    position: absolute;
+    color:  white;
+    /*color:  #353535;*/
+    background-color: #444;
+    border-radius: 8px;
+    padding: .75rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Clear Sans', sans-serif;
+    /*margin-bottom: 1rem;*/
+    /*margin-top: 5px;*/
+    /*top: 10px;*/
+    top: 10px;
+    left: 50%;
+    /*margin: auto;*/
   }
+
+  
 
   }
 </style>
