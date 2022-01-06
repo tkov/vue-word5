@@ -271,7 +271,7 @@ export default {
 
         let tiles = document.querySelectorAll('.tile');
         for (let element of tiles){
-          element.style.backgroundColor = 'white';
+          element.style.backgroundColor = '#efefef';
           element.innerHTML = '';
         }
 
@@ -322,6 +322,7 @@ export default {
     width: 64px;
     height: 64px;
     border: 4px solid #444;
+    background-color: #efefef;
     /*display: inline-block;*/
     display: flex;
     justify-content: center;
@@ -335,6 +336,9 @@ export default {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    border: solid 20px #efefef;
+    padding: 20px;
+
   }
 
   .guess {
@@ -347,7 +351,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 2rem;
+
+    /*border: solid 2px black;*/
   }
 
   .visible {
@@ -362,4 +368,25 @@ export default {
     transition: visibility 0s 2s, opacity 2s linear;
   }
 
+
+  @media (max-width: 550px) {
+
+
+    .tile {
+      width: 48px;
+      height: 48px;
+      font-size:  30px;
+      background-color: #efefef;
+    }
+     .board {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border: solid 10px #efefef;
+    padding: 20px;
+    margin: auto;
+
+  }
+
+  }
 </style>

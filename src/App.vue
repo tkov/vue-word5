@@ -1,8 +1,11 @@
 <template>
   <!-- <Title /> -->
+  <div class="wrapper">
+    
   <GameBoard :isPlaying="play" :keyPressed="key" @keyColors="getKeyColors" @isPlaying="getIsPlaying" :tar="word" @newGame="isNewGame" :newGame="start" @playingNewGame="getPlayingNewGame" @restart="getRestart"/>
   <Keyboard :isPlaying="play" :keyColors="keyColors" @key="getKey" @newGame="isNewGame" :newGame="start" @newGameKeys="getNewGameKeys" :restartImage="restart"/>
   <!-- takes in: isPlaying Boolean, keyColors Array  -->
+  </div>
 
 </template>
 
@@ -129,6 +132,21 @@ export default {
 
 <style>
   body {
-    /*background-color: #353535;*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #444;
+    }
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 550px) {
+    .wrapper {
+      justify-content: space-around;
+      margin-top: 10%;
+    }
   }
 </style>

@@ -43,12 +43,35 @@ export default {
     font-family: 'Clear Sans' , sans-serif;
     letter-spacing: 2px;
     font-weight: 200;
-    background-color: #444;
-    color: white;
+    background-color: #efefef;
+    color: #444;
     width: 275px;
     text-align: center;
     padding: 1rem;
-    outline: 10px solid #444;
-    border: 4px solid white;
+    outline: 10px solid #efefef;
+    border: 4px solid #444;
+  }
+
+
+  @media (max-width: 550px) {
+
+    h1 {
+    font-size: 55px;
+    text-transform: uppercase;
+    font-family: 'Clear Sans' , sans-serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    background-color: #efefef;
+    color: #444;
+    width: 250px;
+    text-align: center;
+    padding: 1rem;
+    outline: 10px solid #efefef;
+    border: 4px solid #444;
+    /*margin-top: 1rem;*/
+  }
+
+
+
   }
 </style>

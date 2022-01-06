@@ -209,25 +209,6 @@ export default {
   
 
 
-  button {
-    font-family: 'Clear Sans', sans-serif;
-    margin: .2rem;
-    height: 58px;
-    width: 43px;
-    border-color: #444;
-    background-color: #eee;
-    border-width: 3px;
-
-  }
-
-  button:hover {
-    /*background-color: #b3b3b3;*/
-    cursor: pointer;
-  }
-
-  button.large-btn {
-    width: calc(43px * 1.5);
-  }
 
   div.spacer {
     /*margin: .2rem;*/
@@ -257,18 +238,19 @@ export default {
     font-weight: 600;
     /*box-shadow: 2px 2px black;*/
     /*color: #ddd;*/
-    border: 5px solid white;
+    border: 5px solid #444;
     /*outline: 5px solid #444;*/
     outline-right: 5px solid #444;
     border-radius: 50%;
     font-size: 1rem;
-    background-color: #444;
+    background-color: #efefef;
     /*background-image: url('../assets/play.png');*/
     background-size: cover;
     /*backgroun-size: fit;*/
     text-transform: uppercase;
     /*border-radius: 1rem;*/
-    position: relative;
+    position: absolute;
+    top: -70px;
   }
 
   #newgamebtn:hover{
@@ -276,7 +258,7 @@ export default {
     /*transform:  scale(.98);*/
   }
 
-  #newgamebtn::after {
+ /* #newgamebtn::after {
     content: ' ';
     position: absolute;
     height: 500px;
@@ -286,7 +268,7 @@ export default {
     z-index: -3;
     border: 20px solid #444;
   }
-
+*/
   #resetbtn {
     margin-bottom: 1rem;
     font-family: 'Clear Sans', sans-serif;
@@ -296,9 +278,9 @@ export default {
     background-color: white;
     /*box-shadow: 2px 2px black;*/
     /*color: #ddd;*/
-    border: 5px solid white;
+    border: 5px solid #efefef;
     /*outline: 5px solid #444;*/
-    outline-right: 5px solid #444;
+    /*outline: 5px solid #444;*/
     border-radius: 50%;
     font-size: 1rem;
     background-image: url('../assets/restart.png');
@@ -306,7 +288,8 @@ export default {
     /*backgroun-size: fit;*/
     text-transform: uppercase;
     /*border-radius: 1rem;*/
-    position: relative;
+    position: absolute;
+    top: -70px;
   }
 
   #resetbtn:hover{
@@ -314,7 +297,7 @@ export default {
     /*transform:  scale(.98);*/
   }
 
-  #resetbtn::after {
+  /*#resetbtn::after {
     content: ' ';
     position: absolute;
     height: 500px;
@@ -323,14 +306,15 @@ export default {
     bottom: 25px;
     z-index: -3;
     border: 20px solid #444;
-  }
+  }*/
 
   .keyboard {
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
 
    .visible {
@@ -352,6 +336,68 @@ export default {
     /*outline: 5px solid #r;*/
     cursor: not-allowed;
   }
+  button {
+    font-family: 'Clear Sans', sans-serif;
+    margin: .2rem;
+    height: 58px;
+    width: 43px;
+    /*border-color: #444;*/
+    /*background-color: #eee;*/
+    /*border-width: 3px;*/
+
+  }
+
+  button:hover {
+    background-color: #efefef;
+    border: 0.5px solid grey;
+    cursor: pointer;
+  }
+
+  button.large-btn {
+    width: calc(43px * 1.5);
+  }
+
+  @media (max-width: 550px) {
+
+    button {
+    font-family: 'Clear Sans', sans-serif;
+    margin: .1rem;
+    height: 58px;
+    width: 30px;
+  }
+
+  button:hover {
+    /*background-color: #b3b3b3;*/
+    cursor: pointer;
+  }
+
+  button.large-btn {
+    /*font-size: .5rem;*/
+    width: calc(40px * 1.5);
+  }
+
+  div.spacer {
+    /*margin: .2rem;*/
+    display: inline;
+    width: calc(30px / 2.0);
+    height: 58px;
+    /*background-color: #353535;*/
+    padding: 1px 6px;
+  }
+
+  #newgamebtn {
+    margin-bottom: 1rem;
+    font-family: 'Clear Sans', sans-serif;
+    width: 56px;
+    height: 56px;
+    top: -60px;
+    }
+  #resetbtn {
+    width: 48px;
+    height: 48px;
+    top: -60px;
+  }
+}
 
 
 
